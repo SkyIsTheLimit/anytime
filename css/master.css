@@ -1,0 +1,43 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+}
+
+.navbar-inverse {
+	background-color: black;
+}
+
+.navbar-brand {
+	padding: 0;
+
+	margin-left: 15px !important;
+}
+
+.navbar-brand span {
+	color: white;
+
+	font-size: 38px;
+	line-height: 44px;
+	margin-left: 10px;
+}
+
+.navbar-brand span,
+.navbar-brand img {
+	float: left;
+}
+
+input.ng-invalid {
+	border: 1px solid red;
+}
+
+.environment-heading {
+	text-align: center;
+	font-weight: 300;
+}
+
+.environment-message {
+	text-align: center;
+	font-style: italic;
+
+	color: #999;
+}
