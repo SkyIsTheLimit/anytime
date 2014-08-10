@@ -60,7 +60,7 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
         if(location.href.indexOf("#/") != -1)
             location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
         else
-            location.href = location.href.replace("#", "&&session=" + $rootScope.session);
+            location.href = location.href.replace("on-my-way", "on-my-way&&session=" + $rootScope.session);
 
     };
 
@@ -76,7 +76,7 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
         if(location.href.indexOf("#/") != -1)
             location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
         else
-            location.href = location.href.replace("#", "&&session=" + $rootScope.session);
+            location.href = location.href.replace("free-time", "free-time&&session=" + $rootScope.session);
     };
 
     $rootScope.setTimeBlank = function() {}
