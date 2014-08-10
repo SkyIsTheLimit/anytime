@@ -10,11 +10,14 @@
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/master.css"/>
 
+	<script type="text/javascript" src="js/angular/angular.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="http://code.highcharts.com/stock/highstock.js"></script>
+
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
-<body>
+<body data-ng-controller="MainController">
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -30,12 +33,178 @@
 				</a>
 			</div>
 		</div>
+
+		<div class="container-fluid secondary-navbar">
+			<ul class="pull-left" data-ng-hide="mode == modes['looking-around']">
+				<li data-ng-repeat="item in navbarItems" data-ng-bind="item.text" data-ng-style="{ color: item.color }" data-ng-if="!item.action"></li>
+				<li data-ng-repeat="item in navbarItems" data-ng-style="{ color: item.color }" data-ng-if="item.action">
+					<a href="" data-ng-if="item.modal && item.modal == 'change-destination'" data-ng-bind="item.text" data-ng-click="item.action()" data-toggle="modal" data-target="#change-destination"></a>
+
+					<a href="" data-ng-if="item.modal && item.modal == 'change-time'" data-ng-bind="item.text" data-ng-click="item.action()" data-toggle="modal" data-target="#change-time"></a>
+				</li>
+			</ul>
+
+			<ul class="pull-right">
+				<li data-ng-repeat="option in options" data-ng-style="{ color: item.color }">
+					<a data-ng-href="{{ option.link }}" data-ng-click="option.action()" data-ng-bind="option.text" data-ng-hide="option.modal"></a>
+
+					<a href="" data-ng-hide="!option.modal" data-ng-if="option.modal && option.modal == 'change-destination'" data-ng-bind="option.text" data-ng-click="option.action()" data-toggle="modal" data-target="#change-destination"></a>
+
+					<a href="" data-ng-hide="!option.modal" data-ng-if="option.modal && option.modal == 'change-time'" data-ng-bind="option.text" data-ng-click="option.action()" data-toggle="modal" data-target="#change-time"></a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 
-	<div class="container">
-		<div class="col-xs-12 col-md-6 col-lg-4 login-form-container">
-			<h1>Home</h1>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Top News</h3>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Cricket</h4>
+							<p class="list-group-item-text">XXX beat ABC</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Player PQR is injured.</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Company ABC's Stock has gone up . . .</h4>
+							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, voluptates.</p>
+							</a>
+						</div>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Sports</h3>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Cricket</h4>
+							<p class="list-group-item-text">XXX beat ABC</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Football</h4>
+							<p class="list-group-item-text">PQR beat XYZ</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">F1 Racing</h4>
+							<p class="list-group-item-text">A Race is coming up.</p>
+							</a>
+						</div>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Videos</h3>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Megastructures Documentary</h4>
+							<p class="list-group-item-text">The Empire State Building . . .</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Nat Geo Documentary</h4>
+							<p class="list-group-item-text">When Tigers Attack . . .</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Angular JS</h4>
+							<p class="list-group-item-text">Angular JS Tutorial . . . </p>
+							</a>
+						</div>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-6 col-lg-4" data-ng-hide="mode == modes['looking-around'] || !session">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Today's Plan</h3>
+					</div>
+					<div class="card-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, qui?</p>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+			<div class="col-sm-12 col-md-12 col-lg-8">
+				<div class="card stock-market">
+					<div class="card-header">
+						<h3 class="card-title">The Stock Market</h3>
+					</div>
+					<div class="card-body free-height">
+						<div id="stock">
+							
+						</div>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
 		</div>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="change-destination" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Set Destination</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h1>Set Destination Setting</h1>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="change-time" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Set Time</h4>
+	      </div>
+	      <div class="modal-body">
+	        <h1>Time Setting</h1>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<script src="js/home.js"></script>
 </body>
 </html>

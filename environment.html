@@ -35,35 +35,43 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 login-form-container">
-				<h1 class="environment-heading">What are you doing?</h1>
+				<h1 class="environment-heading">What are you doing right now?</h1>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-				<form role="form" action="environment.html" class="login-form">
-					<p class="environment-message">Select your environment . . .</p>
+				<form role="form" action="home.html" class="environment-form">
+					<p class="environment-message">Select your mode . . .</p>
 
-					<div class="radio">
-						<label>
-							<input type="radio" name="environment" id="on-my-way" value="on-my-way" checked>
-							On my way to a destination.
-						</label>
-					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="environment" id="free-time" value="free-time">
-							I have got some free time.
-						</label>
-					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="environment" id="looking-around" value="looking-around">
-							I am just looking around.
-						</label>
+					<div class="radios">
+						<div class="radio">
+							<label>
+								<input type="radio" name="environment" id="on-my-way" value="on-my-way" checked>
+								On my way to a destination.
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="environment" id="free-time" value="free-time">
+								I have got some free time.
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="environment" id="looking-around" value="looking-around">
+								I am just looking around.
+							</label>
+						</div>
 					</div>
 
-					<button type="submit" class="btn btn-success pull-right">Login</button>
+					<p class="environment-message">Don't worry, you can change this later on.</p>
+
+					<button type="submit" class="btn btn-success btn-environment">Continue <span class="glyphicon glyphicon-chevron-right"></span></button>
+
+					<p class="environment-message highlight move-down">We see that the last time you used <span class="brand">Anytime</span>, you were on your way to work.</p>
+
+					<a class="important-link center" href="home.html?environment=on-my-way&&session=active" class="center-button">Use This Again</a>
 				</form>
 			</div>
 		</div>
