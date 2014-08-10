@@ -40,7 +40,7 @@
 				<li data-ng-repeat="item in navbarItems" data-ng-style="{ color: item.color }" data-ng-if="item.action">
 					<a href="" data-ng-if="item.modal && item.modal == 'change-destination'" data-ng-bind="item.text" data-ng-click="item.action()" data-toggle="modal" data-target="#change-destination"></a>
 
-					<a href="" data-ng-if="item.modal && item.modal == 'change-time'" data-ng-bind="item.text" data-ng-click="item.action()" data-toggle="modal" data-target="#change-time"></a>
+					<a id="set-time" href="" data-ng-if="item.modal && item.modal == 'change-time'" data-ng-bind="item.text" data-ng-click="item.action()" data-toggle="modal" data-target="#change-time"></a>
 				</li>
 			</ul>
 
@@ -71,13 +71,18 @@
 							</a>
 
 							<a href="#" class="list-group-item">
-							<h4 class="list-group-item-heading">Player PQR is injured.</h4>
-							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+							<h4 class="list-group-item-heading">Company ABC's Stock has gone up . . .</h4>
+							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, voluptates.</p>
 							</a>
 
 							<a href="#" class="list-group-item">
-							<h4 class="list-group-item-heading">Company ABC's Stock has gone up . . .</h4>
+							<h4 class="list-group-item-heading">HTML 5 Update</h4>
 							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, voluptates.</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">Player PQR is injured.</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
 							</a>
 						</div>
 					</div>
@@ -93,16 +98,19 @@
 					<div class="card-body">
 						<div class="list-group">
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 10:00</span>
 							<h4 class="list-group-item-heading">Cricket</h4>
 							<p class="list-group-item-text">XXX beat ABC</p>
 							</a>
 
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 45:00</span>
 							<h4 class="list-group-item-heading">Football</h4>
 							<p class="list-group-item-text">PQR beat XYZ</p>
 							</a>
 
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 30:00</span>
 							<h4 class="list-group-item-heading">F1 Racing</h4>
 							<p class="list-group-item-text">A Race is coming up.</p>
 							</a>
@@ -120,16 +128,19 @@
 					<div class="card-body">
 						<div class="list-group">
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 30:00</span>
 							<h4 class="list-group-item-heading">Megastructures Documentary</h4>
 							<p class="list-group-item-text">The Empire State Building . . .</p>
 							</a>
 
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 40:00</span>
 							<h4 class="list-group-item-heading">Nat Geo Documentary</h4>
 							<p class="list-group-item-text">When Tigers Attack . . .</p>
 							</a>
 
 							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 1:10:00</span>
 							<h4 class="list-group-item-heading">Angular JS</h4>
 							<p class="list-group-item-text">Angular JS Tutorial . . . </p>
 							</a>
@@ -145,7 +156,31 @@
 						<h3 class="card-title">Today's Plan</h3>
 					</div>
 					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, qui?</p>
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 10:00</span>
+							<h4 class="list-group-item-heading">HTML 5 Update</h4>
+							<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, voluptates.</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 45:00</span>
+							<h4 class="list-group-item-heading">Mega Structures Documentary</h4>
+							<p class="list-group-item-text">The Empire State Building . . .</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 5:00</span>
+							<h4 class="list-group-item-heading">Break</h4>
+							<p class="list-group-item-text">Have a break, have a kitkat :)</p>
+							</a>
+
+							<a href="#" class="list-group-item">
+							<span class="time-required" data-ng-if="session">Time Required 8:00</span>
+							<h4 class="list-group-item-heading">Music</h4>
+							<p class="list-group-item-text">Music soothes your muscles and prepares you for the day.</p>
+							</a>
+						</div>
 					</div>
 					<div class="card-footer"></div>
 				</div>
@@ -176,11 +211,10 @@
 	        <h4 class="modal-title" id="myModalLabel">Set Destination</h4>
 	      </div>
 	      <div class="modal-body">
-	        <h1>Set Destination Setting</h1>
+	        <p>Add google map location chooser here.</p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+		      <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" data-ng-click="setDestination()">Set Destination</button>
 	      </div>
 	    </div>
 	  </div>
@@ -195,11 +229,26 @@
 	        <h4 class="modal-title" id="myModalLabel">Set Time</h4>
 	      </div>
 	      <div class="modal-body">
-	        <h1>Time Setting</h1>
+	      	<h1 class="environment-heading" style="margin-top: 0">How much time do you have?</h1>
+	      	<div class="time-selector">
+	      		<div class="unit pull-left">
+		      		<label for="">Hours</label>
+	      			<input type="number" data-ng-model="hours">
+	      		</div>
+
+	      		<div class="unit pull-left">
+		      		<label for="">Minutes</label>
+	      			<input type="number" data-ng-model="minutes">
+	      		</div>
+
+	      		<div class="unit pull-left">
+		      		<label for="">Seconds</label>
+	      			<input type="number" data-ng-model="seconds">
+	      		</div>
+	      	</div>
 	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	      <div class="modal-footer clearfix">
+	        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" data-ng-click="setTime()">Set Time</button>
 	      </div>
 	    </div>
 	  </div>

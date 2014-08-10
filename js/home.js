@@ -25,6 +25,10 @@ console.log("Creating angular module . .. ");
 angular.module("anytime", []);
 
 angular.module("anytime").controller("MainController", ["$rootScope", "$location", function($rootScope, $location) {
+    $rootScope.hours = 00;
+    $rootScope.minutes = 30;
+    $rootScope.seconds = 00;
+
     // Figure out the mode the user has selected . . .
     var environment = location.search.substring(1);
     if(environment.indexOf("&&") != -1)
@@ -51,10 +55,12 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
     $rootScope.options = [];
 
     $rootScope.setDestination = function() {
-        // $rootScope.session = "active";
+        $rootScope.session = "active";
 
-        // location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
+        location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
     };
+
+    $rootScope.setDestinationBlank = function() {}
 
     $rootScope.changeDestination = function() {
 
@@ -62,7 +68,11 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
 
     $rootScope.setTime = function() {
         $rootScope.session = "active";
+
+        location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
     };
+
+    $rootScope.setTimeBlank = function() {}
 
     $rootScope.changeTime = function() {
 
@@ -79,17 +89,17 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
             $rootScope.navbarItems.push({
                 text: "Set Destination",
                 color: "blue",
-                action: $rootScope.setDestination,
+                action: $rootScope.setDestinationBlank,
                 modal: "change-destination"
             });
         } else {
             $rootScope.navbarItems.push({
-                text: "Time since start of journey : 12:10",
+                text: "Time since start of journey : 10:30",
                 color: "red"
             });
 
             $rootScope.navbarItems.push({
-                text: "Time remaining to destination : 1:01:50",
+                text: "Time remaining to destination : 19:30",
                 color: "red"
             });
 
@@ -118,7 +128,7 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
             $rootScope.navbarItems.push({
                 text: "Set Time",
                 color: "blue",
-                action: $rootScope.setTime,
+                action: $rootScope.setTimeBlank,
                 modal: "change-time"
             });
         } else {
