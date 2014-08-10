@@ -57,7 +57,11 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
     $rootScope.setDestination = function() {
         $rootScope.session = "active";
 
-        location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
+        if(location.href.indexOf("#/") != -1)
+            location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
+        else
+            location.href = location.href.replace("#", "&&session=" + $rootScope.session);
+
     };
 
     $rootScope.setDestinationBlank = function() {}
@@ -69,7 +73,10 @@ angular.module("anytime").controller("MainController", ["$rootScope", "$location
     $rootScope.setTime = function() {
         $rootScope.session = "active";
 
-        location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
+        if(location.href.indexOf("#/") != -1)
+            location.href = location.href.replace("#/", "&&session=" + $rootScope.session);
+        else
+            location.href = location.href.replace("#", "&&session=" + $rootScope.session);
     };
 
     $rootScope.setTimeBlank = function() {}
