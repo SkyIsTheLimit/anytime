@@ -87,8 +87,12 @@ input.ng-invalid {
 
 	margin-bottom: 20px;
 
-	box-shadow: 0 0 4px black;
+	box-shadow: 0 0 1px #999;
 	padding: 5px;
+}
+
+.card:HOVER {
+	box-shadow: 0 0 1px #999, 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .card > .card-body {
