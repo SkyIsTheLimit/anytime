@@ -1,0 +1,82 @@
+.brand-section {
+	position: relative;
+	padding-top: 0px;
+	padding-bottom: 40px;
+	background-color: rgba(0, 0, 0, 0.93);
+	background-size: 400px;
+
+	background-image: linear-gradient(150deg, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.5)), 
+	url(http://uploads.webflow.com/53dd1dc0c589e6281b7111bd/53e5d8c7edc43d5932f07b62_woods.png);
+
+	background-size: auto, contain;
+	background-repeat: repeat, repeat-x;
+	background-attachment: scroll, fixed;
+}
+
+.brand-section .title {
+	display: block;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 100px;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+	font-size: 120px;
+	line-height: 140px;
+	font-style: normal;
+	font-weight: 300;
+	text-align: center;
+	text-decoration: none;
+}
+
+.brand-section .timer {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	float: none;
+	background-color: transparent;
+	color: white;
+	text-align: left;
+}
+
+.brand-section .slogan {
+	display: block;
+	margin-top: 40px;
+	margin-right: auto;
+	font-family: 'Open Sans', sans-serif;
+	color: #ccc;
+	font-size: 24px;
+	line-height: 28px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.options-section {
+	text-align: center;
+
+	margin: 20px;
+	padding: 20px;
+
+	border-top: 2px dashed #BBB;
+	border-bottom: 2px dashed #BBB;
+}
+
+.options-section .btn {
+	padding: 15px;
+	padding-left: 40px;
+	padding-right: 40px;
+
+	min-width: 200px;
+
+	margin: 10px;
+
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 1.5em;
+}
+
+.details-section {
+	height: 400px;
+
+	background-color: #123;
+}
